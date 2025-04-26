@@ -12,7 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  title = 'Bigbussy';
+  title = 'Big Bussy';
   isMenuOpen = false;
 
   toggleMenu(): void {
