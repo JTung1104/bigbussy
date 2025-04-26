@@ -1,1 +1,51 @@
-<p>videos works!</p>
+<section class="videos-hero">
+  <div class="container">
+    <div class="hero-content">
+      <h1 class="hero-title">Bigbussy's Videos</h1>
+      <p class="hero-subtitle">Watch me serve looks while coding, dancing, and exploring Flushing!</p>
+    </div>
+  </div>
+</section>
+
+<section class="videos-grid">
+  <div class="container">
+    <div class="videos-container">
+      <div class="video-card" [class.active]="isVideoActive(video.id)" *ngFor="let video of videos">
+        <div class="video-thumbnail" (click)="playVideo(video.id)">
+          <img [src]="video.thumbnail" [alt]="video.title" class="thumbnail">
+          <div class="play-button">
+            <span class="material-icons">play_circle</span>
+          </div>
+        </div>
+        <div class="video-info">
+          <h3 class="video-title">{{ video.title }}</h3>
+          <p class="video-description">{{ video.description }}</p>
+          <div class="video-meta">
+            <span class="video-views">{{ video.views }} views</span>
+            <span class="video-date">{{ video.date }}</span>
+          </div>
+        </div>
+        <div class="video-embed">
+          <iframe 
+            [src]="getVideoUrl(video.id) | safe:'resourceUrl'" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="videos-cta">
+  <div class="container">
+    <div class="cta-content">
+      <h2 class="section-title">Want to See More?</h2>
+      <p class="cta-text">Subscribe to my YouTube channel for more content about coding, dancing, and life in Flushing!</p>
+      <a href="https://youtube.com/bigbussy" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+        Subscribe to YouTube
+      </a>
+    </div>
+  </div>
+</section>
