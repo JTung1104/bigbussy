@@ -1,10 +1,22 @@
-<mat-toolbar color="primary">
-  <span>{{ title }}</span>
-  <span class="spacer"></span>
-  <nav>
-    <a mat-button routerLink="/" routerLinkActive="active">Home</a>
-    <a mat-button routerLink="/about" routerLinkActive="active">About</a>
-    <a mat-button routerLink="/videos" routerLinkActive="active">Videos</a>
-    <a mat-button routerLink="/contact" routerLinkActive="active">Contact</a>
-  </nav>
-</mat-toolbar>
+<header class="header">
+  <div class="container">
+    <div class="header-content">
+      <div class="logo">
+        <a routerLink="/" class="logo-link">
+          <span class="logo-text">{{ title }}</span>
+        </a>
+      </div>
+      
+      <button class="mobile-menu-btn" (click)="toggleMenu()" aria-label="Toggle menu">
+        <span class="material-icons">{{ isMenuOpen ? 'close' : 'menu' }}</span>
+      </button>
+      
+      <nav class="nav" [class.nav-open]="isMenuOpen">
+        <a class="nav-link" routerLink="/" routerLinkActive="active" (click)="closeMenu()">Home</a>
+        <a class="nav-link" routerLink="/about" routerLinkActive="active" (click)="closeMenu()">About</a>
+        <a class="nav-link" routerLink="/videos" routerLinkActive="active" (click)="closeMenu()">Videos</a>
+        <a class="nav-link" routerLink="/contact" routerLinkActive="active" (click)="closeMenu()">Contact</a>
+      </nav>
+    </div>
+  </div>
+</header>

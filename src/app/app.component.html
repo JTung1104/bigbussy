@@ -175,12 +175,28 @@
       margin-block: 1.5rem;
     }
   }
+
+  .main-content {
+    min-height: calc(100vh - 120px); /* Account for header and footer */
+    padding: var(--spacing-lg) 0;
+    background-color: var(--color-base);
+  }
+
+  @media (max-width: 768px) {
+    .main-content {
+      padding: var(--spacing-md) 0;
+    }
+  }
 </style>
 
 <app-header></app-header>
-<main>
-  <router-outlet></router-outlet>
+
+<main class="main-content">
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
 </main>
+
 <app-footer></app-footer>
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
