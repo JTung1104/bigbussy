@@ -1,1 +1,53 @@
-<p>about works!</p>
+<section class="about-hero">
+  <div class="container">
+    <div class="about-content">
+      <h1 class="about-title">About Bigbussy</h1>
+      <div class="about-image">
+        <img src="assets/images/profile.jpg" alt="Bigbussy" class="profile-pic">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about-story">
+  <div class="container">
+    <div class="story-content">
+      <h2 class="section-title">From Flushing to Fame</h2>
+      <div class="story-text">
+        <p>Born and raised in the vibrant streets of Flushing, Queens, Bigbussy's journey has been anything but ordinary. Growing up in one of New York's most diverse neighborhoods, they developed a unique perspective on life, culture, and entertainment.</p>
+        
+        <p>Before becoming a software developer, Bigbussy dazzled audiences as a go-go dancer, bringing energy and excitement to every performance. Their ability to connect with people and create memorable experiences translated perfectly into their tech career.</p>
+        
+        <p>Today, Bigbussy combines their creative background with technical expertise to create engaging digital experiences. Known for their infectious personality and quick wit, they bring a fresh perspective to both the tech and entertainment industries.</p>
+        
+        <p>When they're not coding or creating content, you can find them sharing their unique take on life, technology, and everything in between. With a personality as big as their bussy, Bigbussy continues to make waves in both the tech and entertainment worlds.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about-social">
+  <div class="container">
+    <h2 class="section-title">Connect with Bigbussy</h2>
+    <div class="social-links">
+      <a *ngFor="let link of socialLinks" 
+         [href]="link.url" 
+         target="_blank" 
+         rel="noopener noreferrer" 
+         class="social-link">
+        <span class="material-icons">{{ link.icon }}</span>
+        <span class="platform-name">{{ link.platform }}</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="about-cta">
+  <div class="container">
+    <div class="cta-content">
+      <h2 class="section-title">Want to Work Together?</h2>
+      <p class="cta-text">Whether you need a software developer, content creator, or just want to chat about life in Flushing, Bigbussy is always open to new opportunities and connections.</p>
+      <a routerLink="/contact" class="btn btn-primary">Get in Touch</a>
+    </div>
+  </div>
+</section>

@@ -1,11 +1,18 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-about',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule, RouterModule],
   templateUrl: './about.component.html',
-  styleUrl: './about.component.scss'
+  styleUrls: ['./about.component.scss']
 })
 export class AboutComponent {
-
+  socialLinks = [
+    { platform: 'Twitter', url: 'https://twitter.com/bigbussy', icon: 'twitter' },
+    { platform: 'Instagram', url: 'https://instagram.com/bigbussy', icon: 'instagram' },
+    { platform: 'YouTube', url: 'https://youtube.com/bigbussy', icon: 'youtube' }
+  ];
 }
