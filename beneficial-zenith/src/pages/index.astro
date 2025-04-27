@@ -1,0 +1,106 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE_TITLE, SITE_DESCRIPTION, SOCIAL_LINKS } from '../consts';
+---
+
+<BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+	<main>
+		<!-- Hero Section -->
+		<section class="hero bg-gradient-to-br from-primary to-secondary text-white py-20 px-4 text-center">
+			<div class="max-w-4xl mx-auto">
+				<h1 class="text-5xl font-bold mb-6">Welcome to {SITE_TITLE}</h1>
+				<p class="text-xl mb-8 opacity-90">{SITE_DESCRIPTION}</p>
+				<div class="flex justify-center gap-4">
+					{SOCIAL_LINKS.map((link) => (
+						<a
+							href={link.url}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="bg-white/10 hover:bg-white/20 px-6 py-3 rounded-lg transition-colors"
+						>
+							<i class={`fab fa-${link.icon} mr-2`}></i>
+							{link.platform}
+						</a>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- Features Section -->
+		<section class="py-20 px-4">
+			<div class="max-w-6xl mx-auto">
+				<h2 class="text-3xl font-bold text-center mb-12">What We Offer</h2>
+				<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+					<div class="bg-white p-6 rounded-lg shadow-lg">
+						<i class="fas fa-video text-primary text-4xl mb-4"></i>
+						<h3 class="text-xl font-semibold mb-2">Exclusive Content</h3>
+						<p class="text-gray-600">Get access to our latest videos and exclusive content.</p>
+					</div>
+					<div class="bg-white p-6 rounded-lg shadow-lg">
+						<i class="fas fa-users text-primary text-4xl mb-4"></i>
+						<h3 class="text-xl font-semibold mb-2">Community</h3>
+						<p class="text-gray-600">Join our growing community of fans and creators.</p>
+					</div>
+					<div class="bg-white p-6 rounded-lg shadow-lg">
+						<i class="fas fa-bell text-primary text-4xl mb-4"></i>
+						<h3 class="text-xl font-semibold mb-2">Stay Updated</h3>
+						<p class="text-gray-600">Never miss out on new content and announcements.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Newsletter Section -->
+		<section class="bg-gray-50 py-20 px-4">
+			<div class="max-w-2xl mx-auto text-center">
+				<h2 class="text-3xl font-bold mb-6">Stay in the Loop</h2>
+				<p class="text-gray-600 mb-8">Subscribe to our newsletter for the latest updates and exclusive content.</p>
+				<form class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto" id="newsletter-form">
+					<input
+						type="email"
+						placeholder="Enter your email"
+						class="flex-1 px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary"
+						required
+					/>
+					<button
+						type="submit"
+						class="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg transition-colors"
+					>
+						Subscribe
+					</button>
+				</form>
+			</div>
+		</section>
+	</main>
+</BaseLayout>
+
+<script>
+	// Newsletter form handling
+	const form = document.getElementById('newsletter-form');
+	if (form) {
+		form.addEventListener('submit', async (e) => {
+			e.preventDefault();
+			const email = form.querySelector('input[type="email"]').value;
+			
+			try {
+				// TODO: Replace with your actual API endpoint
+				const response = await fetch('/api/newsletter', {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json',
+					},
+					body: JSON.stringify({ email }),
+				});
+				
+				if (response.ok) {
+					alert('Thanks for subscribing!');
+					form.reset();
+				} else {
+					throw new Error('Subscription failed');
+				}
+			} catch (error) {
+				alert('Something went wrong. Please try again later.');
+			}
+		});
+	}
+</script>
