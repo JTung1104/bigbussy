@@ -1,0 +1,100 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE_TITLE } from '../consts';
+
+// This would typically come from an API or CMS
+const videos = [
+  {
+    id: 1,
+    title: 'Latest Video Title',
+    description: 'Check out my latest video where I share some exciting updates and fun moments!',
+    thumbnail: '/videos/thumbnail1.jpg',
+    url: 'https://youtube.com/watch?v=example1',
+    date: '2024-04-20',
+    views: '10K'
+  },
+  {
+    id: 2,
+    title: 'Funny Moments Compilation',
+    description: 'A compilation of the funniest moments from my recent streams and videos.',
+    thumbnail: '/videos/thumbnail2.jpg',
+    url: 'https://youtube.com/watch?v=example2',
+    date: '2024-04-15',
+    views: '25K'
+  },
+  {
+    id: 3,
+    title: 'Behind the Scenes',
+    description: 'Take a look behind the scenes of my content creation process.',
+    thumbnail: '/videos/thumbnail3.jpg',
+    url: 'https://youtube.com/watch?v=example3',
+    date: '2024-04-10',
+    views: '15K'
+  }
+];
+---
+
+<BaseLayout title="Videos" description="Watch the latest videos from Big Bussy">
+  <main>
+    <section class="hero bg-gradient-to-br from-primary to-secondary text-white py-20 px-4 text-center">
+      <div class="max-w-4xl mx-auto">
+        <h1 class="text-5xl font-bold mb-6">Latest Videos</h1>
+        <p class="text-xl mb-8 opacity-90">Check out my latest content and don't forget to subscribe!</p>
+      </div>
+    </section>
+
+    <section class="py-20 px-4">
+      <div class="max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {videos.map((video) => (
+            <a
+              href={video.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
+            >
+              <div class="relative pb-[56.25%]">
+                <img
+                  src={video.thumbnail}
+                  alt={video.title}
+                  class="absolute top-0 left-0 w-full h-full object-cover"
+                />
+                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
+                  <span class="text-white text-sm">
+                    <i class="fas fa-eye mr-2"></i>
+                    {video.views} views
+                  </span>
+                </div>
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold mb-2">{video.title}</h3>
+                <p class="text-gray-600 mb-4">{video.description}</p>
+                <div class="flex items-center justify-between text-sm text-gray-500">
+                  <span>
+                    <i class="far fa-calendar mr-2"></i>
+                    {video.date}
+                  </span>
+                  <span class="text-primary">
+                    Watch Now <i class="fas fa-arrow-right ml-2"></i>
+                  </span>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+
+        <div class="mt-12 text-center">
+          <a
+            href="https://youtube.com/@2_dolla_heaux"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-lg transition-colors"
+          >
+            <i class="fab fa-youtube text-2xl mr-3"></i>
+            Subscribe to My Channel
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout> 

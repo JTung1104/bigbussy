@@ -1,0 +1,88 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<BaseLayout title="About" description="Learn more about Big Bussy">
+  <main>
+    <section class="hero bg-gradient-to-br from-primary to-secondary text-white py-20 px-4 text-center">
+      <div class="max-w-4xl mx-auto">
+        <h1 class="text-5xl font-bold mb-6">About {SITE_TITLE}</h1>
+        <p class="text-xl mb-8 opacity-90">Get to know the person behind the content</p>
+      </div>
+    </section>
+
+    <section class="py-20 px-4">
+      <div class="max-w-4xl mx-auto">
+        <div class="bg-white p-8 rounded-lg shadow-lg">
+          <h2 class="text-3xl font-bold mb-6">Who Am I?</h2>
+          <p class="text-gray-600 mb-6">
+            Hi there! I'm Justin, the creator behind Big Bussy. I'm passionate about creating entertaining and engaging content that brings joy to people's lives.
+          </p>
+          <p class="text-gray-600 mb-6">
+            Based in Reno, Nevada, I've been creating content for several years, focusing on humor, lifestyle, and connecting with my audience in meaningful ways.
+          </p>
+          <p class="text-gray-600 mb-6">
+            My goal is to create a space where everyone feels welcome and can enjoy quality entertainment. Whether it's through videos, social media, or community engagement, I strive to make a positive impact.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+          <div class="bg-white p-8 rounded-lg shadow-lg">
+            <h3 class="text-2xl font-bold mb-4">What I Do</h3>
+            <ul class="space-y-4">
+              <li class="flex items-start gap-4">
+                <i class="fas fa-video text-primary text-xl mt-1"></i>
+                <div>
+                  <h4 class="font-semibold">Content Creation</h4>
+                  <p class="text-gray-600">Creating engaging videos and content for my audience</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-4">
+                <i class="fas fa-users text-primary text-xl mt-1"></i>
+                <div>
+                  <h4 class="font-semibold">Community Building</h4>
+                  <p class="text-gray-600">Fostering a positive and inclusive community</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-4">
+                <i class="fas fa-handshake text-primary text-xl mt-1"></i>
+                <div>
+                  <h4 class="font-semibold">Collaborations</h4>
+                  <p class="text-gray-600">Working with other creators and brands</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="bg-white p-8 rounded-lg shadow-lg">
+            <h3 class="text-2xl font-bold mb-4">Fun Facts</h3>
+            <ul class="space-y-4">
+              <li class="flex items-start gap-4">
+                <i class="fas fa-star text-primary text-xl mt-1"></i>
+                <div>
+                  <h4 class="font-semibold">Favorite Color</h4>
+                  <p class="text-gray-600">Purple (as you might have guessed!)</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-4">
+                <i class="fas fa-music text-primary text-xl mt-1"></i>
+                <div>
+                  <h4 class="font-semibold">Music Lover</h4>
+                  <p class="text-gray-600">Always looking for new tunes to share</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-4">
+                <i class="fas fa-heart text-primary text-xl mt-1"></i>
+                <div>
+                  <h4 class="font-semibold">Passion</h4>
+                  <p class="text-gray-600">Making people smile and laugh</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout> 

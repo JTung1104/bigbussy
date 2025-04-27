@@ -3,7 +3,20 @@ export const SITE_DESCRIPTION = 'Welcome to Big Bussy - Your source for entertai
 export const SITE_URL = 'https://bigbussy.com';
 
 export const SOCIAL_LINKS = [
-  { platform: 'Instagram', url: 'https://instagram.com/2_dolla_heaux', icon: 'instagram' },
-  { platform: 'YouTube', url: 'https://youtube.com/@2_dolla_heaux', icon: 'youtube' },
-  { platform: 'Twitter', url: 'https://twitter.com/bigbussy', icon: 'twitter' }
+  {
+    icon: 'youtube',
+    url: 'https://youtube.com/@bigbussy',
+  },
+  {
+    icon: 'twitter',
+    url: 'https://twitter.com/bigbussy',
+  },
+  {
+    icon: 'instagram',
+    url: 'https://instagram.com/bigbussy',
+  },
+  {
+    icon: 'tiktok',
+    url: 'https://tiktok.com/@bigbussy',
+  },
 ]; 
