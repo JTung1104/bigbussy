@@ -12,7 +12,7 @@ import { RouterModule } from '@angular/router';
 export class AboutComponent {
   socialLinks = [
     { platform: 'Twitter', url: 'https://twitter.com/bigbussy', icon: 'twitter' },
-    { platform: 'Instagram', url: 'https://instagram.com/bigbussy', icon: 'instagram' },
-    { platform: 'YouTube', url: 'https://youtube.com/bigbussy', icon: 'youtube' }
+    { platform: 'Instagram', url: 'https://instagram.com/2_dolla_heaux', icon: 'instagram' },
+    { platform: 'YouTube', url: 'https://youtube.com/@2_dolla_heaux', icon: 'youtube' }
   ];
 }

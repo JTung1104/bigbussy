@@ -1,1 +1,131 @@
-<p>contact works!</p>
+<section class="contact-hero">
+  <div class="container">
+    <div class="hero-content">
+      <h1 class="hero-title">Let's Connect! 💌</h1>
+      <p class="hero-subtitle">Whether you want to chat, collaborate, or just say hi, I'd love to hear from you!</p>
+    </div>
+  </div>
+</section>
+
+<section class="contact-content">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-form-container">
+        <h2 class="section-title">Send Me a Message</h2>
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input 
+              type="text" 
+              id="name" 
+              formControlName="name"
+              placeholder="What should I call you?"
+              [class.error]="contactForm.get('name')?.invalid && contactForm.get('name')?.touched"
+            >
+            <div class="error-message" *ngIf="contactForm.get('name')?.invalid && contactForm.get('name')?.touched">
+              Please enter your name
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Your Email</label>
+            <input 
+              type="email" 
+              id="email" 
+              formControlName="email"
+              placeholder="Where can I reach you?"
+              [class.error]="contactForm.get('email')?.invalid && contactForm.get('email')?.touched"
+            >
+            <div class="error-message" *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched">
+              Please enter a valid email address
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input 
+              type="text" 
+              id="subject" 
+              formControlName="subject"
+              placeholder="What's this about?"
+              [class.error]="contactForm.get('subject')?.invalid && contactForm.get('subject')?.touched"
+            >
+            <div class="error-message" *ngIf="contactForm.get('subject')?.invalid && contactForm.get('subject')?.touched">
+              Please enter a subject
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea 
+              id="message" 
+              formControlName="message"
+              placeholder="What's on your mind?"
+              [class.error]="contactForm.get('message')?.invalid && contactForm.get('message')?.touched"
+              rows="5"
+            ></textarea>
+            <div class="error-message" *ngIf="contactForm.get('message')?.invalid && contactForm.get('message')?.touched">
+              Please enter a message (at least 10 characters)
+            </div>
+          </div>
+
+          <button 
+            type="submit" 
+            [disabled]="contactForm.invalid || isSubmitting"
+            class="submit-button"
+          >
+            <span *ngIf="!isSubmitting">Send Message</span>
+            <span *ngIf="isSubmitting" class="loading-spinner"></span>
+          </button>
+
+          <div class="form-message success" *ngIf="submissionSuccess">
+            Message sent successfully! I'll get back to you soon. 🎉
+          </div>
+
+          <div class="form-message error" *ngIf="submissionError">
+            {{ errorMessage }}
+          </div>
+        </form>
+      </div>
+
+      <div class="contact-info">
+        <h2 class="section-title">Other Ways to Connect</h2>
+        <div class="social-links">
+          <h3>Connect with me</h3>
+          <div class="social-icons">
+            <a 
+              *ngFor="let link of socialLinks" 
+              [href]="link.url" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="social-link"
+            >
+              <i [class]="'fab fa-' + link.icon"></i>
+              <span>{{ link.platform }}</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="quick-info">
+          <h3>Quick Info</h3>
+          <div class="info-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Based in Reno, Nevada</span>
+          </div>
+          <div class="info-item">
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:justin&#64;bigbussy.com">justin&#64;bigbussy.com</a>
+          </div>
+          <div class="info-item">
+            <i class="fas fa-clock"></i>
+            <span>Available for collaborations</span>
+          </div>
+          <div class="info-item">
+            <i class="fas fa-reply"></i>
+            <span>Usually responds within 24 hours</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
