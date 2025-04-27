@@ -6,22 +6,25 @@ import { SITE_TITLE, SITE_DESCRIPTION, SOCIAL_LINKS } from '../consts';
 <BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
 	<main>
 		<!-- Hero Section -->
-		<section class="hero bg-gradient-to-br from-primary to-secondary text-white py-20 px-4 text-center">
-			<div class="max-w-4xl mx-auto">
-				<h1 class="text-5xl font-bold mb-6">Welcome to {SITE_TITLE}</h1>
-				<p class="text-xl mb-8 opacity-90">{SITE_DESCRIPTION}</p>
-				<div class="flex justify-center gap-4">
-					{SOCIAL_LINKS.map((link) => (
-						<a
-							href={link.url}
-							target="_blank"
-							rel="noopener noreferrer"
-							class="bg-white/10 hover:bg-white/20 px-6 py-3 rounded-lg transition-colors"
-						>
-							<i class={`fab fa-${link.icon} mr-2`}></i>
-							{link.platform}
-						</a>
-					))}
+		<section class="hero">
+			<div class="container">
+				<div class="hero-content">
+					<h1>Welcome to {SITE_TITLE}</h1>
+					<p>{SITE_DESCRIPTION}</p>
+					<div class="social-links">
+						{SOCIAL_LINKS.map((link) => (
+							<a
+								href={link.url}
+								target="_blank"
+								rel="noopener noreferrer"
+								class="social-link"
+								aria-label={`Follow us on ${link.platform}`}
+							>
+								<i class={`fab fa-${link.icon}`}></i>
+								<span class="platform-name">{link.platform}</span>
+							</a>
+						))}
+					</div>
 				</div>
 			</div>
 		</section>
@@ -51,24 +54,30 @@ import { SITE_TITLE, SITE_DESCRIPTION, SOCIAL_LINKS } from '../consts';
 		</section>
 
 		<!-- Newsletter Section -->
-		<section class="bg-gray-50 py-20 px-4">
-			<div class="max-w-2xl mx-auto text-center">
-				<h2 class="text-3xl font-bold mb-6">Stay in the Loop</h2>
-				<p class="text-gray-600 mb-8">Subscribe to our newsletter for the latest updates and exclusive content.</p>
-				<form class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto" id="newsletter-form">
-					<input
-						type="email"
-						placeholder="Enter your email"
-						class="flex-1 px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary"
-						required
-					/>
-					<button
-						type="submit"
-						class="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg transition-colors"
-					>
-						Subscribe
-					</button>
-				</form>
+		<section class="newsletter">
+			<div class="container">
+				<div class="newsletter-content">
+					<div class="newsletter-text">
+						<h2>Stay in the Loop</h2>
+						<p>Subscribe to our newsletter for the latest updates and exclusive content.</p>
+					</div>
+					<form class="newsletter-form" id="newsletter-form">
+						<div class="form-group">
+							<input
+								type="email"
+								placeholder="Enter your email"
+								required
+								aria-label="Email address"
+							/>
+							<button
+								type="submit"
+								class="subscribe-button"
+							>
+								Subscribe
+							</button>
+						</div>
+					</form>
+				</div>
 			</div>
 		</section>
 	</main>
@@ -104,3 +113,216 @@ import { SITE_TITLE, SITE_DESCRIPTION, SOCIAL_LINKS } from '../consts';
 		});
 	}
 </script>
+
+<style>
+	.hero {
+		background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+		color: white;
+		padding: 6rem 1rem;
+		text-align: center;
+	}
+
+	.container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 1rem;
+	}
+
+	.hero-content {
+		max-width: 800px;
+		margin: 0 auto;
+	}
+
+	.hero h1 {
+		font-size: 3.5rem;
+		font-weight: 700;
+		margin-bottom: 1.5rem;
+		line-height: 1.2;
+	}
+
+	.hero p {
+		font-size: 1.25rem;
+		opacity: 0.9;
+		margin-bottom: 3rem;
+		line-height: 1.6;
+	}
+
+	.social-links {
+		display: flex;
+		justify-content: center;
+		gap: 1.5rem;
+		flex-wrap: wrap;
+	}
+
+	.social-link {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.75rem;
+		background: rgba(255, 255, 255, 0.1);
+		padding: 1rem 2rem;
+		border-radius: 0.5rem;
+		color: white;
+		text-decoration: none;
+		transition: all 0.3s ease;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.social-link::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(255, 255, 255, 0.1);
+		transform: translateY(100%);
+		transition: transform 0.3s ease;
+	}
+
+	.social-link:hover {
+		background: rgba(255, 255, 255, 0.2);
+		transform: translateY(-3px);
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+	}
+
+	.social-link:hover::before {
+		transform: translateY(0);
+	}
+
+	.social-link i {
+		font-size: 1.5rem;
+		color: white;
+		position: relative;
+		z-index: 1;
+	}
+
+	.platform-name {
+		font-weight: 500;
+		position: relative;
+		z-index: 1;
+	}
+
+	@media (max-width: 640px) {
+		.hero {
+			padding: 4rem 1rem;
+		}
+
+		.hero h1 {
+			font-size: 2.5rem;
+		}
+
+		.hero p {
+			font-size: 1.1rem;
+		}
+
+		.social-links {
+			gap: 1rem;
+		}
+
+		.social-link {
+			padding: 0.75rem 1.5rem;
+		}
+	}
+
+	.newsletter {
+		background: var(--color-bg-alt);
+		padding: 4rem 1rem;
+	}
+
+	.newsletter-content {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 2rem;
+		max-width: 800px;
+		margin: 0 auto;
+	}
+
+	.newsletter-text {
+		text-align: center;
+	}
+
+	.newsletter h2 {
+		color: var(--color-secondary);
+		font-size: 2.5rem;
+		margin-bottom: 1rem;
+	}
+
+	.newsletter p {
+		color: var(--color-text);
+		opacity: 0.8;
+		font-size: 1.1rem;
+		line-height: 1.6;
+		max-width: 600px;
+		margin: 0 auto;
+	}
+
+	.newsletter-form {
+		width: 100%;
+		max-width: 500px;
+	}
+
+	.form-group {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.newsletter-form input {
+		width: 100%;
+		padding: 0.75rem 1rem;
+		border: 2px solid var(--color-border);
+		border-radius: 0.5rem;
+		font-size: 1rem;
+		transition: all 0.2s;
+	}
+
+	.newsletter-form input:focus {
+		outline: none;
+		border-color: var(--color-primary);
+		box-shadow: 0 0 0 3px rgba(255, 105, 180, 0.1);
+	}
+
+	.subscribe-button {
+		width: 100%;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.5rem;
+		background: var(--color-primary);
+		color: white;
+		padding: 0.75rem 1.5rem;
+		border: none;
+		border-radius: 0.5rem;
+		font-weight: 600;
+		cursor: pointer;
+		transition: all 0.2s;
+	}
+
+	.subscribe-button:hover {
+		background: var(--color-secondary);
+		transform: translateY(-2px);
+	}
+
+	.subscribe-button:focus {
+		outline: none;
+		box-shadow: 0 0 0 3px rgba(255, 105, 180, 0.3);
+	}
+
+	@media (min-width: 640px) {
+		.form-group {
+			flex-direction: row;
+		}
+
+		.newsletter-form input {
+			width: auto;
+			flex: 1;
+		}
+
+		.subscribe-button {
+			width: auto;
+		}
+	}
+</style>
