@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { SITE_TITLE } from '../consts';
+import { SITE_TITLE, SOCIAL_LINKS } from '../consts';
 ---
 
 <BaseLayout title="Contact" description="Get in touch with Big Bussy">
@@ -8,82 +8,66 @@ import { SITE_TITLE } from '../consts';
     <section class="hero">
       <div class="container">
         <h1>Let's Connect! 💌</h1>
-        <p>I'd love to hear from you. Send me a message and I'll get back to you as soon as possible.</p>
+        <p>Feel free to reach out through any of my social media platforms or email.</p>
       </div>
     </section>
 
     <section class="contact-section">
       <div class="container">
         <div class="contact-grid">
-          <div class="contact-info">
-            <h2>Quick Info</h2>
-            <div class="info-item">
-              <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
-              <div>
-                <h3>Location</h3>
-                <p>Reno, Nevada</p>
-              </div>
-            </div>
-            <div class="info-item">
-              <i class="fas fa-clock" aria-hidden="true"></i>
-              <div>
-                <h3>Response Time</h3>
-                <p>Usually within 24 hours</p>
-              </div>
-            </div>
-            <div class="info-item">
-              <i class="fas fa-envelope" aria-hidden="true"></i>
-              <div>
-                <h3>Email</h3>
-                <a href="mailto:justin@bigbussy.com" class="email-link">justin@bigbussy.com</a>
-              </div>
-            </div>
+          <div class="contact-card">
+            <i class="fab fa-instagram"></i>
+            <h3>Instagram</h3>
+            <p>DM me on Instagram for quick responses</p>
+            <a href="https://instagram.com/2_dolla_heaux" target="_blank" rel="noopener noreferrer" class="contact-button">
+              Message on Instagram
+            </a>
           </div>
 
-          <form class="contact-form" action="/api/contact" method="POST">
-            <div class="form-group">
-              <label for="name">Name</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                placeholder="What should I call you?"
-                required
-                aria-required="true"
-              />
-            </div>
+          <div class="contact-card">
+            <i class="fab fa-twitter"></i>
+            <h3>Twitter</h3>
+            <p>Send me a DM on Twitter</p>
+            <a href="https://twitter.com/2_dolla_heaux" target="_blank" rel="noopener noreferrer" class="contact-button">
+              Message on Twitter
+            </a>
+          </div>
 
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                placeholder="Where can I reach you?"
-                required
-                aria-required="true"
-              />
-            </div>
+          <div class="contact-card">
+            <i class="fas fa-envelope"></i>
+            <h3>Email</h3>
+            <p>For business inquiries and collaborations</p>
+            <a href="mailto:justin@bigbussy.com" class="contact-button">
+              Send Email
+            </a>
+          </div>
 
-            <div class="form-group">
-              <label for="message">Message</label>
-              <textarea
-                id="message"
-                name="message"
-                placeholder="What's on your mind?"
-                required
-                aria-required="true"
-                minlength="10"
-              ></textarea>
-            </div>
+          <div class="contact-card">
+            <i class="fab fa-tiktok"></i>
+            <h3>TikTok</h3>
+            <p>Connect with me on TikTok</p>
+            <a href="https://tiktok.com/@2_dolla_heaux" target="_blank" rel="noopener noreferrer" class="contact-button">
+              Follow on TikTok
+            </a>
+          </div>
 
-            <button type="submit" class="submit-button">
-              <span class="button-text">Send Message</span>
-              <span class="button-icon" aria-hidden="true">
-                <i class="fas fa-paper-plane"></i>
-              </span>
-            </button>
-          </form>
+          <div class="contact-card">
+            <i class="fab fa-youtube"></i>
+            <h3>YouTube</h3>
+            <p>Subscribe to my channel</p>
+            <a href="https://youtube.com/@2_dolla_heaux" target="_blank" rel="noopener noreferrer" class="contact-button">
+              Subscribe on YouTube
+            </a>
+          </div>
+
+          <div class="contact-card">
+            <i class="fas fa-heart"></i>
+            <h3>OnlyFans</h3>
+            <p>For exclusive content and direct messaging</p>
+            <a href="https://onlyfans.com/bigbussy" target="_blank" rel="noopener noreferrer" class="contact-button">
+              Join OnlyFans
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -91,8 +75,11 @@ import { SITE_TITLE } from '../consts';
 </BaseLayout>
 
 <style>
-  .contact-section {
-    padding: 2rem 1rem;
+  .hero {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    color: white;
+    padding: 6rem 1rem;
+    text-align: center;
   }
 
   .container {
@@ -101,163 +88,125 @@ import { SITE_TITLE } from '../consts';
     padding: 0 1rem;
   }
 
+  .hero h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  .hero p {
+    font-size: 1.25rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .contact-section {
+    padding: 4rem 1rem;
+  }
+
   .contact-grid {
     display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     margin-top: 2rem;
   }
 
-  .contact-info {
-    background: var(--color-bg);
+  .contact-card {
+    background: white;
     padding: 2rem;
     border-radius: 1rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-
-  .contact-info h2 {
-    color: var(--color-secondary);
-    margin-bottom: 1.5rem;
-    font-size: 1.75rem;
-  }
-
-  .info-item {
+    text-align: center;
+    transition: transform 0.3s ease;
+    min-height: 300px;
     display: flex;
-    align-items: flex-start;
-    gap: 1rem;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .contact-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .contact-card-content {
+    flex: 1;
+    width: 100%;
+  }
+
+  .contact-card i {
+    font-size: 3rem;
+    color: var(--color-primary);
     margin-bottom: 1.5rem;
   }
 
-  .info-item i {
-    color: var(--color-primary);
-    font-size: 1.5rem;
-    margin-top: 0.25rem;
+  .contact-card h3 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--color-text);
   }
 
-  .info-item h3 {
+  .contact-card p {
     color: var(--color-text);
-    margin-bottom: 0.25rem;
+    opacity: 0.8;
+    margin-bottom: 2rem;
     font-size: 1.1rem;
   }
 
-  .info-item p {
-    color: var(--color-text);
-    opacity: 0.8;
-  }
-
-  .email-link {
-    color: var(--color-primary);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-
-  .email-link:hover {
-    color: var(--color-secondary);
-  }
-
-  .contact-form {
-    background: var(--color-bg);
-    padding: 2rem;
-    border-radius: 1rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-
-  .form-group {
-    margin-bottom: 1.5rem;
-  }
-
-  .form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    color: var(--color-text);
-    font-weight: 500;
-  }
-
-  .form-group input,
-  .form-group textarea {
-    width: 100%;
-    padding: 0.75rem;
-    border: 2px solid var(--color-border);
-    border-radius: 0.5rem;
-    background: white;
-    transition: all 0.2s;
-  }
-
-  .form-group input:focus,
-  .form-group textarea:focus {
-    outline: none;
-    border-color: var(--color-primary);
-    box-shadow: 0 0 0 3px rgba(255, 105, 180, 0.1);
-  }
-
-  .form-group textarea {
-    min-height: 150px;
-    resize: vertical;
-  }
-
-  .submit-button {
+  .contact-button {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
+    justify-content: center;
     background: var(--color-primary);
     color: white;
-    padding: 0.75rem 1.5rem;
-    border: none;
+    padding: 0.875rem 1.75rem;
     border-radius: 0.5rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+    min-width: 180px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
 
-  .submit-button:hover {
+  .contact-button:hover {
     background: var(--color-secondary);
     transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   }
 
-  .submit-button:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(255, 105, 180, 0.3);
-  }
-
-  .button-icon {
-    display: flex;
-    align-items: center;
-  }
-
-  @media (min-width: 768px) {
+  @media (max-width: 1024px) {
     .contact-grid {
-      grid-template-columns: 1fr 2fr;
+      grid-template-columns: repeat(2, 1fr);
     }
+  }
 
-    .contact-section {
+  @media (max-width: 768px) {
+    .hero {
       padding: 4rem 1rem;
     }
-  }
 
-  /* Accessibility improvements */
-  .form-group input:focus-visible,
-  .form-group textarea:focus-visible,
-  .submit-button:focus-visible {
-    outline: 2px solid var(--color-primary);
-    outline-offset: 2px;
-  }
+    .hero h1 {
+      font-size: 2.5rem;
+    }
 
-  .submit-button:disabled {
-    opacity: 0.7;
-    cursor: not-allowed;
-  }
+    .contact-grid {
+      grid-template-columns: 1fr;
+    }
 
-  /* Loading state */
-  .submit-button.loading .button-text {
-    opacity: 0;
-  }
+    .contact-card {
+      min-height: 250px;
+    }
 
-  .submit-button.loading .button-icon {
-    animation: spin 1s linear infinite;
-  }
+    .contact-card i {
+      font-size: 2.5rem;
+    }
 
-  @keyframes spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+    .contact-card h3 {
+      font-size: 1.5rem;
+    }
   }
 </style>
 
