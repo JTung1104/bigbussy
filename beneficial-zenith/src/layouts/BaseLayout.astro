@@ -91,7 +91,15 @@ const currentPath = Astro.url.pathname;
                   aria-label={`Follow on ${link.icon}`}
                   class="social-link"
                 >
-                  <i class={`fab fa-${link.icon}`}></i>
+                  {link.image ? (
+                    <img 
+                      src={link.image} 
+                      alt="OnlyFans" 
+                      class="social-icon-image"
+                    />
+                  ) : (
+                    <i class={`fab fa-${link.icon}`}></i>
+                  )}
                 </a>
               ))}
             </div>
@@ -470,5 +478,25 @@ const currentPath = Astro.url.pathname;
       transition-duration: 0.01ms !important;
       scroll-behavior: auto !important;
     }
+  }
+
+  .social-icon-image {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    filter: brightness(0) saturate(100%) invert(47%) sepia(99%) saturate(1552%) hue-rotate(300deg) brightness(100%) contrast(101%);
+  }
+
+  .social-icon-svg {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    color: var(--color-icon);
+  }
+
+  .social-link:hover .social-icon-image {
+    filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
   }
 </style> 
