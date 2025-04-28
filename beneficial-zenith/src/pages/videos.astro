@@ -9,7 +9,7 @@ const videos = [
     title: 'Latest Video Title',
     description: 'Check out my latest video where I share some exciting updates and fun moments!',
     thumbnail: '/videos/thumbnail1.jpg',
-    url: 'https://youtube.com/watch?v=example1',
+    url: 'https://youtube.com/@2_dolla_heaux',
     date: '2024-04-20',
     views: '10K'
   },
@@ -18,7 +18,7 @@ const videos = [
     title: 'Funny Moments Compilation',
     description: 'A compilation of the funniest moments from my recent streams and videos.',
     thumbnail: '/videos/thumbnail2.jpg',
-    url: 'https://youtube.com/watch?v=example2',
+    url: 'https://youtube.com/@2_dolla_heaux',
     date: '2024-04-15',
     views: '25K'
   },
@@ -27,7 +27,7 @@ const videos = [
     title: 'Behind the Scenes',
     description: 'Take a look behind the scenes of my content creation process.',
     thumbnail: '/videos/thumbnail3.jpg',
-    url: 'https://youtube.com/watch?v=example3',
+    url: 'https://youtube.com/@2_dolla_heaux',
     date: '2024-04-10',
     views: '15K'
   }
@@ -40,6 +40,15 @@ const videos = [
       <div class="container">
         <h1>Latest Videos</h1>
         <p>Check out my latest content and don't forget to subscribe!</p>
+        <a
+          href="https://youtube.com/@2_dolla_heaux"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="subscribe-button"
+        >
+          <i class="fab fa-youtube"></i>
+          Subscribe to My Channel
+        </a>
       </div>
     </section>
 
@@ -81,24 +90,73 @@ const videos = [
             </a>
           ))}
         </div>
-
-        <div class="subscribe-section">
-          <a
-            href="https://youtube.com/@2_dolla_heaux"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="subscribe-button"
-          >
-            <i class="fab fa-youtube"></i>
-            Subscribe to My Channel
-          </a>
-        </div>
       </div>
     </section>
   </main>
 </BaseLayout>
 
 <style>
+  .hero {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    color: white;
+    padding: 6rem 1rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 50vh;
+  }
+
+  .hero .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    max-width: 800px;
+  }
+
+  .hero h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.2;
+  }
+
+  .hero p {
+    font-size: 1.5rem;
+    opacity: 0.9;
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .subscribe-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: white;
+    color: var(--color-primary);
+    padding: 1.25rem 2.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 1.25rem;
+    margin-top: 1rem;
+  }
+
+  .subscribe-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    background: var(--color-secondary);
+    color: white;
+  }
+
+  .subscribe-button i {
+    font-size: 1.5rem;
+  }
+
   .videos-section {
     padding: 2rem 1rem;
   }
@@ -112,7 +170,6 @@ const videos = [
   .videos-grid {
     display: grid;
     gap: 2rem;
-    margin-bottom: 3rem;
   }
 
   .video-card {
@@ -182,33 +239,6 @@ const videos = [
   .watch-now {
     color: var(--color-primary);
     font-weight: 500;
-  }
-
-  .subscribe-section {
-    text-align: center;
-    margin-top: 2rem;
-  }
-
-  .subscribe-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.75rem;
-    background: var(--color-primary);
-    color: white;
-    padding: 1rem 2rem;
-    border-radius: 0.5rem;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.2s ease;
-  }
-
-  .subscribe-button:hover {
-    background: var(--color-secondary);
-    transform: translateY(-2px);
-  }
-
-  .subscribe-button i {
-    font-size: 1.5rem;
   }
 
   @media (min-width: 768px) {
