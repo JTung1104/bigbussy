@@ -40,15 +40,12 @@ const videos = [
       <div class="container">
         <h1>Latest Videos</h1>
         <p>Check out my latest content and don't forget to subscribe!</p>
-        <a
-          href="https://youtube.com/@2_dolla_heaux"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="subscribe-button"
-        >
-          <i class="fab fa-youtube"></i>
-          Subscribe to My Channel
-        </a>
+        <div class="subscribe-section">
+          <a href="https://youtube.com/@2_dolla_heaux?sub_confirmation=1" target="_blank" rel="noopener noreferrer" class="subscribe-button">
+            <i class="fab fa-youtube"></i>
+            Subscribe to My Channel
+          </a>
+        </div>
       </div>
     </section>
 
@@ -130,6 +127,12 @@ const videos = [
     line-height: 1.5;
   }
 
+  .subscribe-section {
+    position: relative;
+    z-index: 1;
+    margin-top: 2rem;
+  }
+
   .subscribe-button {
     display: inline-flex;
     align-items: center;
@@ -143,7 +146,9 @@ const videos = [
     transition: all 0.2s ease;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     font-size: 1.25rem;
-    margin-top: 1rem;
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
   }
 
   .subscribe-button:hover {
@@ -155,6 +160,8 @@ const videos = [
 
   .subscribe-button i {
     font-size: 1.5rem;
+    position: relative;
+    z-index: 2;
   }
 
   .videos-section {
