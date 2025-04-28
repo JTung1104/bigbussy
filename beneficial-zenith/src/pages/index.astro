@@ -9,6 +9,11 @@ import { SITE_TITLE, SITE_DESCRIPTION, SOCIAL_LINKS } from '../consts';
 		<section class="hero">
 			<div class="container">
 				<div class="hero-content">
+					<img 
+						src="https://res.cloudinary.com/dsolojfgkabc/image/upload/v1745849835/bussylips_zuwvdu.png" 
+						alt="Big Bussy Logo"
+						class="logo"
+					/>
 					<h1>Welcome to {SITE_TITLE}</h1>
 					<p>{SITE_DESCRIPTION}</p>
 					<div class="social-links">
@@ -122,6 +127,13 @@ import { SITE_TITLE, SITE_DESCRIPTION, SOCIAL_LINKS } from '../consts';
 		text-align: center;
 	}
 
+	.logo {
+		width: 200px;
+		height: auto;
+		margin-bottom: 2rem;
+		filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+	}
+
 	.container {
 		max-width: 1200px;
 		margin: 0 auto;
@@ -131,6 +143,9 @@ import { SITE_TITLE, SITE_DESCRIPTION, SOCIAL_LINKS } from '../consts';
 	.hero-content {
 		max-width: 800px;
 		margin: 0 auto;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 	}
 
 	.hero h1 {
@@ -145,6 +160,7 @@ import { SITE_TITLE, SITE_DESCRIPTION, SOCIAL_LINKS } from '../consts';
 		opacity: 0.9;
 		margin-bottom: 3rem;
 		line-height: 1.6;
+		max-width: 600px;
 	}
 
 	.social-links {
@@ -208,6 +224,11 @@ import { SITE_TITLE, SITE_DESCRIPTION, SOCIAL_LINKS } from '../consts';
 	@media (max-width: 640px) {
 		.hero {
 			padding: 4rem 1rem;
+		}
+
+		.logo {
+			width: 160px;
+			margin-bottom: 1.5rem;
 		}
 
 		.hero h1 {
