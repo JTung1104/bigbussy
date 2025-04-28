@@ -22,6 +22,7 @@ export const SOCIAL_LINKS = [
   {
     icon: 'onlyfans',
     url: 'https://onlyfans.com/bigbussy',
-    image: 'https://res.cloudinary.com/dsolojfgkabc/image/upload/w_1000,ar_1:1,c_crop,r_max,g_auto,e_art:hokusai/v1745865558/onlyfans-white-circle_jhdeag.png'
+    image: 'https://res.cloudinary.com/dsolojfgkabc/image/upload/w_1000,ar_1:1,c_crop,r_max,g_auto,e_art:hokusai/v1745865558/onlyfans-white-circle_jhdeag.png',
+    whiteImage: 'https://res.cloudinary.com/dsolojfgkabc/image/upload/v1745865558/onlyfans-white-circle_jhdeag.png'
   }
 ]; 

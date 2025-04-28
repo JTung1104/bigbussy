@@ -16,17 +16,24 @@ import { SITE_TITLE, SITE_DESCRIPTION, SOCIAL_LINKS } from '../consts';
 					/>
 					<h1>Welcome to {SITE_TITLE}</h1>
 					<p>{SITE_DESCRIPTION}</p>
-					<div class="social-links">
+					<div class="social-links" aria-label="Social media links">
 						{SOCIAL_LINKS.map((link) => (
-							<a
-								href={link.url}
-								target="_blank"
-								rel="noopener noreferrer"
+							<a 
+								href={link.url} 
+								target="_blank" 
+								rel="noopener noreferrer" 
+								aria-label={`Follow on ${link.icon}`}
 								class="social-link"
-								aria-label={`Follow us on ${link.platform}`}
 							>
-								<i class={`fab fa-${link.icon}`}></i>
-								<span class="platform-name">{link.platform}</span>
+								{link.icon === 'onlyfans' ? (
+									<img 
+										src={link.whiteImage} 
+										alt="OnlyFans" 
+										class="social-icon-image"
+									/>
+								) : (
+									<i class={`fab fa-${link.icon}`}></i>
+								)}
 							</a>
 						))}
 					</div>
@@ -218,6 +225,17 @@ import { SITE_TITLE, SITE_DESCRIPTION, SOCIAL_LINKS } from '../consts';
 		color: white;
 		position: relative;
 		z-index: 1;
+	}
+
+	.social-icon-image {
+		width: 24px !important;
+		height: 24px !important;
+		min-width: 24px !important;
+		min-height: 24px !important;
+		object-fit: contain;
+		display: block;
+		filter: brightness(0) invert(1);
+		background-color: rgba(255, 255, 255, 0.1);
 	}
 
 	.platform-name {
