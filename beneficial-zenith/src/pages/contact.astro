@@ -7,6 +7,11 @@ import { SITE_TITLE, SOCIAL_LINKS } from '../consts';
   <main>
     <section class="hero">
       <div class="container">
+        <img 
+          src="https://res.cloudinary.com/dsolojfgkabc/image/upload/e_background_removal/v1745849835/bussylips_zuwvdu.png" 
+          alt="Big Bussy Logo"
+          class="logo"
+        />
         <h1>Let's Connect! 💌</h1>
         <p>Feel free to reach out through any of my social media platforms or email.</p>
       </div>
@@ -80,25 +85,45 @@ import { SITE_TITLE, SOCIAL_LINKS } from '../consts';
     color: white;
     padding: 6rem 1rem;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
   }
 
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
+  .logo {
+    width: 200px;
+    height: auto;
+    margin-bottom: 2rem;
+    filter: drop-shadow(0 0 10px rgba(255, 105, 180, 0.3));
+    transition: transform 0.3s ease;
+  }
+
+  .logo:hover {
+    transform: scale(1.05);
+  }
+
+  .hero .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    max-width: 800px;
   }
 
   .hero h1 {
     font-size: 3.5rem;
     font-weight: 700;
-    margin-bottom: 1rem;
+    margin: 0;
+    line-height: 1.2;
   }
 
   .hero p {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     opacity: 0.9;
-    max-width: 600px;
-    margin: 0 auto;
+    margin: 0;
+    line-height: 1.5;
   }
 
   .contact-section {
@@ -186,18 +211,37 @@ import { SITE_TITLE, SOCIAL_LINKS } from '../consts';
   @media (max-width: 768px) {
     .hero {
       padding: 4rem 1rem;
+      min-height: 50vh;
+    }
+
+    .logo {
+      width: 160px;
+      margin-bottom: 1.5rem;
     }
 
     .hero h1 {
       font-size: 2.5rem;
     }
 
+    .hero p {
+      font-size: 1.25rem;
+    }
+
+    .hero .container {
+      gap: 1.5rem;
+    }
+
     .contact-grid {
       grid-template-columns: 1fr;
+      max-width: 400px;
+      margin: 0 auto;
     }
 
     .contact-card {
       min-height: 250px;
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
     }
 
     .contact-card i {
@@ -206,6 +250,10 @@ import { SITE_TITLE, SOCIAL_LINKS } from '../consts';
 
     .contact-card h3 {
       font-size: 1.5rem;
+    }
+
+    .contact-button {
+      min-width: 160px;
     }
   }
 </style>

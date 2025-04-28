@@ -38,6 +38,11 @@ const videos = [
   <main>
     <section class="hero">
       <div class="container">
+        <img 
+          src="https://res.cloudinary.com/dsolojfgkabc/image/upload/e_background_removal/v1745849835/bussylips_zuwvdu.png" 
+          alt="Big Bussy Logo"
+          class="logo"
+        />
         <h1>Latest Videos</h1>
         <p>Check out my latest content and don't forget to subscribe!</p>
         <div class="subscribe-section">
@@ -102,7 +107,19 @@ const videos = [
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 50vh;
+    min-height: 60vh;
+  }
+
+  .logo {
+    width: 200px;
+    height: auto;
+    margin-bottom: 2rem;
+    filter: drop-shadow(0 0 10px rgba(255, 105, 180, 0.3));
+    transition: transform 0.3s ease;
+  }
+
+  .logo:hover {
+    transform: scale(1.05);
   }
 
   .hero .container {
@@ -257,6 +274,18 @@ const videos = [
   @media (min-width: 1024px) {
     .videos-grid {
       grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding: 4rem 1rem;
+      min-height: 50vh;
+    }
+
+    .logo {
+      width: 160px;
+      margin-bottom: 1.5rem;
     }
   }
 </style> 
