@@ -4,14 +4,14 @@
   "trailingSlash": false,
   "redirects": [
     {
-      "source": "/(.*)",
+      "source": "/",
       "has": [
         {
           "type": "host",
           "value": "bigbussy.com"
         }
       ],
-      "destination": "https://www.bigbussy.com/$1",
+      "destination": "https://www.bigbussy.com",
       "permanent": true
     }
   ],
