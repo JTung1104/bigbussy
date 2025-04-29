@@ -8,10 +8,10 @@
       "has": [
         {
           "type": "host",
-          "value": "www.bigbussy.com"
+          "value": "bigbussy.com"
         }
       ],
-      "destination": "https://bigbussy.com/$1",
+      "destination": "https://www.bigbussy.com/$1",
       "permanent": true
     }
   ],
