@@ -1,4 +1,24 @@
+# Allow all crawlers
 User-agent: *
 Allow: /
 
-Sitemap: https://bigbussy.com/sitemap-index.xml 
+# Sitemap location
+Sitemap: https://bigbussy.com/sitemap.xml
+
+# Crawl-delay for all bots (1 request per second)
+Crawl-delay: 1
+
+# Disallow admin and private areas (if any exist in the future)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /api/
+
+# Allow all media files
+Allow: /*.jpg$
+Allow: /*.png$
+Allow: /*.gif$
+Allow: /*.mp4$
+Allow: /*.webm$
+
+# Host directive (optional but recommended)
+Host: bigbussy.com 
