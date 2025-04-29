@@ -12,24 +12,7 @@
         }
       ],
       "destination": "https://bigbussy.com/$1",
-      "permanent": true,
-      "statusCode": 301
-    },
-    {
-      "source": "/(.*)",
-      "has": [
-        {
-          "type": "host",
-          "value": "bigbussy.com"
-        }
-      ],
-      "headers": [
-        {
-          "key": "Location",
-          "value": "https://bigbussy.com/$1"
-        }
-      ],
-      "statusCode": 301
+      "permanent": true
     }
   ],
   "headers": [
